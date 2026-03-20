@@ -1,0 +1,180 @@
+Build a premium, ultra-luxury real estate showcase website using ONLY HTML, CSS, and Vanilla JavaScript (no frameworks).
+
+Project Name: Dar Al Naseem (DAN)
+
+Goal:
+Create a high-end, Rolex-level luxury website experience that showcases the founder, company strength, and exclusivity. The design must feel rich, premium, modern, and cinematic with smooth animations, glassmorphism, blur effects, and 3D-like visual depth.
+
+-----------------------------------
+🌐 GLOBAL DESIGN REQUIREMENTS
+-----------------------------------
+- Theme: Royal luxury (inspired by Rolex, Emaar, high-end UAE real estate brands)
+- Colors: Black, gold, deep blue, white accents
+- Fonts: Elegant serif + modern sans-serif combination
+- Effects:
+  - Smooth scroll
+  - Fade-in animations
+  - Glass blur (backdrop-filter)
+  - Gradient gold highlights
+  - Subtle parallax
+  - Glow effects
+- Cursor: Custom luxury cursor (optional)
+- Page transitions: Smooth
+- Everything should feel premium and cinematic
+
+-----------------------------------
+🧠 SECTION 1: FOUNDER STORY (MAIN HERO)
+-----------------------------------
+Create a full-screen hero section.
+
+Content:
+- Name: MR. Khaleel Mohd
+- Title: Visionary Architect & Investment Consultant
+- Description (story format, not bullet points):
+  - Architect by profession
+  - One of the top-tier architects in UAE
+  - Years of experience in UAE
+  - Specialization:
+      - Architecture (ARC)
+      - Infrastructure development
+      - Investment consulting
+      - Opinion-based project analysis
+
+Animation Requirements:
+- Text should appear letter-by-letter (typewriter effect)
+- Once animation completes, it stops
+- On page reload → animation restarts
+
+-----------------------------------
+🔒 RESTRICTED PROJECT SHOWCASE
+-----------------------------------
+- Display multiple project cards (Project 1, Project 2, etc.)
+- All projects must be BLURRED initially
+- Add overlay text: "Restricted Access"
+- Add lock icon
+
+Below that:
+Create a form to unlock access:
+
+Form Fields:
+- Name
+- Phone Number
+- Email
+- Comment box (What are you looking for?)
+
+Contact Options:
+- WhatsApp button
+- Email button
+
+Functionality:
+- When user fills form and clicks WhatsApp:
+   → Open WhatsApp with pre-filled message including:
+     Name, Phone, Email, Comment
+- When user clicks Email:
+   → Open mail client with same pre-filled details
+
+-----------------------------------
+🏢 SECTION 2: COMPANY SHOWCASE
+-----------------------------------
+Storytelling format again (animated text like founder section)
+
+Content:
+- Dar Al Naseem is one of the oldest and most reliable real estate firms
+- Certified architectural consultants
+- Strong presence in real estate sector
+- Services:
+   - Buying & Selling
+   - Land & Plot Experts
+   - Development
+   - Property Management
+
+Highlight:
+- Managers handle investment portfolios worth 100M+
+
+Animation:
+- Numbers should count from 0 → 100M+ dynamically
+
+-----------------------------------
+🤝 COLLABORATORS SCROLL
+-----------------------------------
+Create a horizontal auto-scrolling logo strip (infinite loop)
+
+Companies:
+- EMMAR
+- NAKHEEL
+- SOBHA
+- DAMAC
+- DANUBE
+- MEERAS
+- SAMANA
+- AZIZI
+
+Style:
+- Logos in grayscale → turn gold on hover
+- Smooth infinite scroll (marquee style)
+
+-----------------------------------
+🏗️ SECTION 3: 3D OFFICE SHOWCASE
+-----------------------------------
+- Create a looping animated blueprint-style section
+- Represent:
+   - 10,000 sqft upcoming office
+
+Overlay Text:
+- Dar Al Naseem (DAN) IT — UAE | IND
+- DAN Group — UAE | SAUDI | USA | IND | UK
+
+Animation:
+- Blueprint lines drawing effect
+- Loop continuously
+
+-----------------------------------
+👨‍💼 SECTION 4: TEAM / AGENTS
+-----------------------------------
+- Show agent cards
+- Images must be blurred (restricted)
+- Add overlay: "Private Access"
+
+Include:
+- Working snapshots (blurred)
+- Short agent descriptions
+
+-----------------------------------
+🎉 FORM SUBMISSION FEEDBACK
+-----------------------------------
+After form submission:
+- Show popup modal:
+   "Message sent successfully. Our team will get back to you within 24 hours with an assured solution."
+
+Style:
+- Smooth fade-in modal
+- Glass effect background
+
+-----------------------------------
+✨ EXTRA LUXURY FEATURES
+-----------------------------------
+- Smooth scrolling
+- Section fade-in on scroll
+- Hover animations on buttons
+- Gold gradient borders
+- Subtle shadows and depth
+- Responsive design (mobile + desktop)
+
+-----------------------------------
+📁 OUTPUT REQUIREMENTS
+-----------------------------------
+- Single HTML file
+- external  CSS and JS 
+- Clean, structured code
+- No external frameworks
+
+-----------------------------------
+⚠️ IMPORTANT
+-----------------------------------
+- Do NOT simplify anything
+- Do NOT skip animations
+- Do NOT skip blur/restricted logic
+- Do NOT skip pre-filled WhatsApp/email feature
+- Focus heavily on premium UI/UX
+
+This website should feel like a luxury real estate brand in UAE, not a basic website.

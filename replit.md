@@ -4,6 +4,23 @@
 
 pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
 
+## Dar Al Naseem (DAN) — Ultra-Luxury Real Estate Showcase
+
+- **Artifact**: `artifacts/dar-al-naseem` (React + Vite, `@workspace/dar-al-naseem`)
+- **Preview Path**: `/` (root)
+- **Stack**: React, Vite, Tailwind CSS, Framer Motion, TypeScript
+- **Features**:
+  - Full-screen founder hero with typewriter animation (MR. Khaleel Mohd)
+  - Restricted blurred project cards with lock overlay
+  - Access form with WhatsApp & Email pre-fill
+  - Company showcase with animated count-up stats (100M+ AED)
+  - Infinite auto-scrolling collaborator logo strip (EMAAR, NAKHEEL, SOBHA, DAMAC, etc.)
+  - Blueprint-style animated office showcase (10,000 sqft)
+  - Blurred agent team cards with "Private Access" overlay
+  - Glass morphism success modal after form submission
+  - Custom luxury gold cursor
+  - Scroll-triggered fade-in animations throughout
+
 ## Stack
 
 - **Monorepo tool**: pnpm workspaces
