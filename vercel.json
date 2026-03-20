@@ -9,19 +9,8 @@
   },
   "routes": [
     {
-      "src": "^/api(/.*)?$",
-      "dest": "artifacts/api-server/src/index.ts",
-      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"]
-    },
-    {
-      "src": "/(.*)",
+      "src": "^(?!/assets).*$",
       "dest": "artifacts/dar-al-naseem/dist/index.html"
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
     }
   ]
 }
