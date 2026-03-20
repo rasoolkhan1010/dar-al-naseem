@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "buildCommand": "pnpm run build",
+  "outputDirectory": "artifacts/dar-al-naseem/dist",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "env": {
+    "PORT": "3000",
+    "BASE_PATH": "/"
+  },
+  "routes": [
+    {
+      "src": "^/api(/.*)?$",
+      "dest": "artifacts/api-server/src/index.ts",
+      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"]
+    },
+    {
+      "src": "/(.*)",
+      "dest": "artifacts/dar-al-naseem/dist/index.html"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
