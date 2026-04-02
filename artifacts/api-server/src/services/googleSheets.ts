@@ -153,18 +153,18 @@ export async function submitToGoogleSheetsViaForm(row: SheetRow): Promise<boolea
     }
 
     const formData = new FormData();
-    formData.append(formFields.timestamp, row.timestamp);
-    formData.append(formFields.userType, row.userType);
-    formData.append(formFields.name, row.name);
-    formData.append(formFields.email, row.email);
-    formData.append(formFields.phone, row.phone);
-    formData.append(formFields.looking, row.looking);
-    formData.append(formFields.propertyType, row.propertyType);
-    formData.append(formFields.budget, row.budget);
-    formData.append(formFields.requirements, row.requirements);
-    formData.append(formFields.companyName, row.companyName);
-    formData.append(formFields.referralSource, row.referralSource);
-    formData.append(formFields.message, row.message);
+    formData.append(formFields.timestamp as string, row.timestamp || "");
+    formData.append(formFields.userType as string, row.userType || "");
+    formData.append(formFields.name as string, row.name || "");
+    formData.append(formFields.email as string, row.email || "");
+    formData.append(formFields.phone as string, row.phone || "");
+    formData.append(formFields.looking as string, row.looking || "");
+    formData.append(formFields.propertyType as string, row.propertyType || "");
+    formData.append(formFields.budget as string, row.budget || "");
+    formData.append(formFields.requirements as string, row.requirements || "");
+    formData.append(formFields.companyName as string, row.companyName || "");
+    formData.append(formFields.referralSource as string, row.referralSource || "");
+    formData.append(formFields.message as string, row.message || "");
 
     const response = await fetch(
       `https://docs.google.com/forms/u/0/d/e/${formId}/formResponse`,

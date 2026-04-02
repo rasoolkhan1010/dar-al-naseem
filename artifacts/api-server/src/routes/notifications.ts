@@ -53,6 +53,7 @@ router.post("/send-notification", async (req: Request, res: Response) => {
         return res.json({ success: true, message: "Email sent successfully" });
       } catch (error) {
         logger.error(error, "Resend email failed");
+        // Continue to next email service option
       }
     }
 
@@ -91,6 +92,7 @@ router.post("/send-notification", async (req: Request, res: Response) => {
         return res.json({ success: true, message: "Email sent successfully" });
       } catch (error) {
         logger.error(error, "SendGrid email failed");
+        // Continue to next email service option
       }
     }
 
@@ -121,18 +123,19 @@ router.post("/send-notification", async (req: Request, res: Response) => {
         return res.json({ success: true, message: "Email sent successfully" });
       } catch (error) {
         logger.error(error, "SMTP email failed");
+        // All email services failed
       }
     }
 
     // If no email service is configured
     logger.warn("No email service configured");
-    res.status(503).json({
+    return res.status(503).json({
       error: "Email service not configured",
       message: "Please set up RESEND_API_KEY, SENDGRID_API_KEY, or SMTP credentials",
     });
   } catch (error) {
     logger.error(error, "Error sending notification");
-    res.status(500).json({ error: "Internal server error" });
+    return res.status(500).json({ error: "Internal server error" });
   }
 });
 

@@ -55,14 +55,14 @@ router.post("/submit-quiz", async (req: Request, res: Response) => {
     await submitToGoogleSheets(row);
 
     // Send success response
-    res.json({
+    return res.json({
       success: true,
       message: "Form submitted successfully",
       data: { id: Date.now() },
     });
   } catch (error) {
     logger.error(error, "Error processing quiz submission");
-    res.status(500).json({
+    return res.status(500).json({
       error: "Internal server error",
     });
   }
