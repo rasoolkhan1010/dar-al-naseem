@@ -897,7 +897,7 @@ function ClientGallery() {
                       {src: CLIENT_IMAGE_1, alt: "Client meeting at luxury property", title: "Property Consultation" },
                       {src: CLIENT_IMAGE_2, alt: "Client signing documents", title: "Deal Closing" },
                       {src: CLIENT_IMAGE_3, alt: "Client touring property", title: "Property Viewing" },
-                      {src: CLIENT_IMAGE_4, alt: "Client with family at new home", title: "Family Relocation" },
+                      {src: CLIENT_IMAGE_4, alt: "Client with family at new home", title: "Business Meetings" },
                       {src: CLIENT_IMAGE_5, alt: "Client at investment meeting", title: "Investment Planning" },
                       {src: CLIENT_IMAGE_6, alt: "Client celebrating purchase", title: "Success Celebration" },
                      
@@ -949,7 +949,9 @@ function FooterSection() {
         <FadeSection>
           <div className="text-center mb-16">
             <div className="shimmer-gold text-5xl font-extralight tracking-widest mb-2" style={{ fontFamily: "var(--app-font-serif)", letterSpacing: "0.4em" }}>DAN</div>
-            <div className="text-white/30 text-xs tracking-widest mb-8 uppercase" style={{ letterSpacing: "0.4em" }}>Dar Al Naseem</div>
+            <div className="text-white/30 text-xs tracking-widest mb-2 uppercase" style={{ letterSpacing: "0.4em" }}>Dar Al Naseem</div>
+                      <div className="text-white/30 text-xs tracking-widest mb-2 uppercase" style={{ letterSpacing: "0.4em" }}>since 2006</div>
+
             <div className="divider-gold max-w-xs mx-auto mb-8" />
             <p className="text-white/40 text-sm max-w-lg mx-auto leading-relaxed">
               Where architecture meets investment intelligence. Serving the 🇦🇪 UAE and beyond with distinction since inception.
@@ -976,6 +978,7 @@ function FooterSection() {
                 <div>Architecture & Design</div>
                 <div>Investment Consulting</div>
                 <div>Property Management</div>
+                <div>IT services consulting</div>
               </div>
             </div>
             <div>
