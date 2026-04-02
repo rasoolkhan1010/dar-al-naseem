@@ -982,7 +982,8 @@ function FooterSection() {
               <div className="gold-text text-xs tracking-widest uppercase mb-3" style={{ letterSpacing: "0.3em" }}>Connect</div>
               <div className="space-y-1 text-white/50 text-xs">
                 <div>info@daralnaseem.com</div>
-                <div>+971 50 000 0000</div>
+                <div>+971508834315</div>
+                <div>+971508834245</div>
                 <div>Dubai, UAE</div>
               </div>
             </div>
