@@ -142,30 +142,30 @@ function Navbar() {
 
   return (
     <nav className={`fixed top-0  left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "glass" : ""}`}>
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 relative">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-auto py-4 relative" style={{ gap: "0.5rem" }}>
         
-        {/* Left: Justice Logo */}
-        <div className="flex-1 min-w-fit flex justify-start">
-          <div className="flex items-center justify-center rounded-lg" style={{ width: "60px", height: "60px", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(201,168,76,0.2)" }}>
+        {/* Left: Justice Logo - Small on mobile, normal on tablet+ */}
+        <div className="flex-shrink-0 flex justify-center" style={{ width: "40px", height: "40px", minWidth: "40px" }}>
+          <div className="md:w-15 md:h-15 flex items-center justify-center rounded-lg transition-all" style={{ width: "40px", height: "40px", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(201,168,76,0.2)" }}>
             <img 
               src={justiceLogoImg} 
               alt="DAN Justice Logo" 
-              className="w-12 h-12 object-contain"
-              style={{ filter: "drop-shadow(0 0 8px rgba(201,168,76,0.3))" }}
+              className="object-contain"
+              style={{ width: "30px", height: "30px", filter: "drop-shadow(0 0 8px rgba(201,168,76,0.3))" }}
             />
           </div>
         </div>
 
-        {/* Center: Logo and Title */}
-        <div className="text-center flex-1">
-          <div className="shimmer-gold text-6xl font-light tracking-widest" style={{ fontFamily: "var(--app-font-serif)", letterSpacing: "0.3em" }}>DAN</div>
-          <div className="text-white/60 text-2xl tracking-widest" style={{ fontSize: "1.2rem", letterSpacing: "0.25em" }}>DAR AL NASEEM </div>
-            <div className="text-white/60 text-2xl tracking-widest" style={{ fontSize: "1.2rem", letterSpacing: "0.25em"}}>SINCE 2006 </div>
+        {/* Center: Logo and Title - Responsive sizing */}
+        <div className="text-center flex-1 min-w-0">
+          <div className="shimmer-gold text-3xl md:text-6xl font-light tracking-widest" style={{ fontFamily: "var(--app-font-serif)", letterSpacing: "0.3em" }}>DAN</div>
+          <div className="text-white/60 text-xs md:text-2xl tracking-widest" style={{ fontSize: "clamp(0.65rem, 1.5vw, 1.2rem)", letterSpacing: "0.15em" }}>DAR AL NASEEM </div>
+            <div className="text-white/60 text-xs md:text-2xl tracking-widest" style={{ fontSize: "clamp(0.65rem, 1.5vw, 1.2rem)", letterSpacing: "0.15em"}}>SINCE 2006 </div>
 
         </div>
 
         {/* Right: Empty for balance */}
-        <div className="flex-1 min-w-fit">
+        <div className="flex-shrink-0" style={{ width: "40px" }}>
         </div>
       </div>
     </nav>

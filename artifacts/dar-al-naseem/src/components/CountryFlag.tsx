@@ -31,8 +31,8 @@ export function CountryFlag({ country, showLabel = false, size = "md" }: FlagPro
   }[size];
 
   return (
-    <span className={`inline-flex items-center gap-1.5 ${sizeClass} emoji-flag`} style={{ lineHeight: "1", fontVariantNumeric: "normal" }}>
-      <span className="emoji-flag" style={{ display: "inline-block", fontSize: "1.2em" }}>{flag}</span>
+    <span className={`inline-flex items-center gap-1.5 ${sizeClass} emoji-flag`} style={{ lineHeight: "1", fontVariantNumeric: "normal", fontVariantEmoji: "emoji" }}>
+      <span className="emoji-flag" style={{ display: "inline-block", fontSize: "1.2em", fontFamily: "EmojiFont, 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', system-ui, -apple-system, 'Segoe UI'" }}>{flag}</span>
       {showLabel && <span style={{ fontSize: "0.9em" }}>{country}</span>}
     </span>
   );
@@ -52,7 +52,7 @@ export function CountriesList({
   size = "md" 
 }: CountriesListProps) {
   return (
-    <span className="inline-flex items-center gap-2 flex-wrap" style={{ alignItems: "center" }}>
+    <span className="inline-flex items-center gap-2 flex-wrap emoji-flag" style={{ alignItems: "center", fontVariantEmoji: "emoji" }}>
       {countries.map((country, index) => (
         <React.Fragment key={country}>
           {index > 0 && <span className="text-white/40">{separator}</span>}

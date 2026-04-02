@@ -60,26 +60,39 @@
   --deep-navy: #060d1a;
 }
 
-/* Emoji Font Support */
-@supports (font-variation-settings: normal) {
-  * {
-    font-family: system-ui, "Segoe UI", "Apple Color Emoji", "Segoe Color Emoji", "Noto Color Emoji", sans-serif;
-  }
+/* Emoji Font Support - Explicit Windows/Mac/Linux Support */
+@font-face {
+  font-family: 'EmojiFont';
+  src: local('Apple Color Emoji'), local('Segoe UI Emoji'), local('Segoe UI Symbol'), local('Noto Color Emoji');
+  unicode-range: U+1F300-U+1F9FF, U+1F000-U+1F64F, U+1F680-U+1F6FF;
 }
 
-/* Emoji specific styling */
-.emoji-flag, [class*="emoji"], span[style*="emoji"] {
-  font-family: "Apple Color Emoji", "Segoe Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif !important;
+* {
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Helvetica Neue", EmojiFont, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+}
+
+body {
+  font-family: var(--app-font-sans), system-ui, -apple-system, "Segoe UI", "Roboto", "Helvetica Neue", EmojiFont, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+}
+
+/* Force Emoji Display - Highest Priority */
+.emoji-flag, [class*="emoji"], span[style*="emoji"], div:has(> span[style*="emoji"]) {
+  font-family: EmojiFont, "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", system-ui, -apple-system, "Segoe UI" !important;
   font-size: 1.2em;
-  font-weight: normal;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  text-rendering: geometricPrecision !important;
+  -webkit-font-smoothing: auto !important;
+  -moz-osx-font-smoothing: auto !important;
   line-height: 1;
   display: inline-block;
   margin-right: 0.2em;
+}
+
+/* Target text nodes with emoji characters */
+strong, em, p, span, div {
+  font-variant-emoji: emoji;
 }
 
 @layer base {
