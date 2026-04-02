@@ -67,7 +67,7 @@ Every package extends `tsconfig.base.json` which sets `composite: true`. The roo
 
 ## Packages
 
-### `artifacts/api-server` (`@workspace/api-server`)
+### `artifacts/api-server` (`@workspace/api-server` )
 
 Express 5 API server. Routes live in `src/routes/` and use `@workspace/api-zod` for request and response validation and `@workspace/db` for persistence.
 

@@ -60,6 +60,28 @@
   --deep-navy: #060d1a;
 }
 
+/* Emoji Font Support */
+@supports (font-variation-settings: normal) {
+  * {
+    font-family: system-ui, "Segoe UI", "Apple Color Emoji", "Segoe Color Emoji", "Noto Color Emoji", sans-serif;
+  }
+}
+
+/* Emoji specific styling */
+.emoji-flag, [class*="emoji"], span[style*="emoji"] {
+  font-family: "Apple Color Emoji", "Segoe Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif !important;
+  font-size: 1.2em;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1;
+  display: inline-block;
+  margin-right: 0.2em;
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -67,7 +89,7 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: var(--app-font-sans);
+    font-family: var(--app-font-sans), "Apple Color Emoji", "Segoe Color Emoji", sans-serif;
     overflow-x: hidden;
     cursor: none;
   }
@@ -302,6 +324,7 @@ html {
   position: relative;
   overflow: hidden;
 }
+
 
 .btn-gold::before {
   content: '';

@@ -1,4 +1,46 @@
 import { useEffect, useRef, useState, useCallback } from "react";
+import { InterrogationQuiz } from "../components/InterrogationQuiz";
+import { CountryFlag, CountriesList } from "../components/CountryFlag";
+import founderimg from "../images/founder_image.jpeg";
+import coimg from "../images/COO_image.jpeg";
+import build1 from "../images/building1.jpeg";
+import build2 from "../images/building2.jpeg";
+import build3 from "../images/building3.jpeg";
+import build4 from "../images/building4.jpeg";
+import build5 from "../images/building5.jpeg";
+import build6 from "../images/building6.jpeg";
+import build7 from "../images/building7.jpeg";
+import build8 from "../images/building8.jpeg";
+import client1 from "../images/client1.jpeg";
+import client2 from "../images/client2.jpeg";
+import client3 from "../images/client3.jpeg";
+import client4 from "../images/client4.jpeg";
+import client5 from "../images/client5.jpeg";
+import client6 from "../images/client6.jpeg";
+import hall1 from "../images/meeting hall.jpeg";
+import hall2 from "../images/meeting hall2.jpeg";
+import justiceLogoImg from "../images/justice logo.webp";
+
+
+const FOUNDER_IMAGE = founderimg; // replace with your founder image URL
+const COO_IMAGE = coimg; // replace with your COO image URL
+const BUILDING_IMAGE = build1; // replace with your building image URL
+const BUILDING_IMAGE_2 = build2; // replace with your second building image URL
+const BUILDING_IMAGE_3 = build3; // replace with your third building image URL
+const BUILDING_IMAGE_4 = build4; // replace with your fourth building image URL
+const BUILDING_IMAGE_5 = build5; // replace with your fifth building image URL
+const BUILDING_IMAGE_6 = build6; // replace with your sixth building image URL
+const BUILDING_IMAGE_7 = build7; // replace with your seventh building image URL
+const BUILDING_IMAGE_8 = build8; // replace with your eighth building image URL
+const CLIENT_IMAGE_1 = client1; // replace with your first client image URL
+const CLIENT_IMAGE_2 = client2; // replace with your second client image URL
+const CLIENT_IMAGE_3 = client3; // replace with your third client image URL
+const CLIENT_IMAGE_4 = client4; // replace with your fourth client image URL
+const CLIENT_IMAGE_5 = client5; // replace with your fifth client image URL
+const CLIENT_IMAGE_6 = client6; // replace with your sixth client image URL
+const HALL_IMAGE_1 = hall1; // replace with your first meeting hall image URL
+const HALL_IMAGE_2 = hall2; // replace with your second meeting hall image URL (using same for demo)
+
 
 // ─── Typewriter Hook ────────────────────────────────────────────────
 function useTypewriter(text: string, speed = 40, startDelay = 600) {
@@ -96,32 +138,44 @@ function Navbar() {
   }, []);
 
   const links = [
-    { href: "#founder", label: "Founder" },
-    { href: "#projects", label: "Projects" },
-    { href: "#company", label: "Company" },
-    { href: "#office", label: "Office" },
-    { href: "#team", label: "Team" },
-    { href: "#contact", label: "Contact" },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "glass" : ""}`} style={{ padding: "1.25rem 2rem" }}>
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <div>
-          <div className="shimmer-gold text-lg font-light tracking-widest" style={{ fontFamily: "var(--app-font-serif)", letterSpacing: "0.3em" }}>DAN</div>
-          <div className="text-white/30 text-xs tracking-widest" style={{ fontSize: "0.55rem", letterSpacing: "0.25em" }}>DAR AL NASEEM</div>
+    <nav className={`fixed top-0  left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "glass" : ""}`}>
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 relative">
+        
+        {/* Left: Justice Logo */}
+        <div className="flex-1 min-w-fit flex justify-start">
+          <div className="flex items-center justify-center rounded-lg" style={{ width: "60px", height: "60px", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(201,168,76,0.2)" }}>
+            <img 
+              src={justiceLogoImg} 
+              alt="DAN Justice Logo" 
+              className="w-12 h-12 object-contain"
+              style={{ filter: "drop-shadow(0 0 8px rgba(201,168,76,0.3))" }}
+            />
+          </div>
         </div>
-        <div className="hidden md:flex items-center gap-8">
-          {links.map(l => (
-            <a key={l.href} href={l.href} className="nav-link">{l.label}</a>
-          ))}
+
+        {/* Center: Logo and Title */}
+        <div className="text-center flex-1">
+          <div className="shimmer-gold text-6xl font-light tracking-widest" style={{ fontFamily: "var(--app-font-serif)", letterSpacing: "0.3em" }}>DAN</div>
+          <div className="text-white/60 text-2xl tracking-widest" style={{ fontSize: "1.2rem", letterSpacing: "0.25em" }}>DAR AL NASEEM </div>
+            <div className="text-white/60 text-2xl tracking-widest" style={{ fontSize: "1.2rem", letterSpacing: "0.25em"}}>SINCE 2006 </div>
+
         </div>
-        <a href="#contact" className="btn-gold px-5 py-2 rounded-full text-xs hidden md:block">
-          Request Access
-        </a>
+
+        {/* Right: Empty for balance */}
+        <div className="flex-1 min-w-fit">
+        </div>
       </div>
     </nav>
   );
+}
+
+// ─── Typing Value Component ────────────────────────────────────────
+function TypingValue({ text, delay = 0 }: { text: string; delay?: number }) {
+  const { displayed } = useTypewriter(text, 100, delay);
+  return <span>{displayed}</span>;
 }
 
 // ─── Hero / Founder ─────────────────────────────────────────────────
@@ -146,15 +200,27 @@ function HeroSection() {
             <div className="text-xs tracking-widest text-white/40 mb-4 uppercase" style={{ letterSpacing: "0.4em" }}>Founder & Principal</div>
             <div className="divider-gold mb-8 w-16" />
 
-            <h1 className="text-5xl md:text-7xl font-extralight leading-none mb-3" style={{ fontFamily: "var(--app-font-serif)", letterSpacing: "-0.01em" }}>
-              <span className="gold-text gold-glow-text">MR.</span>
-            </h1>
-            <h1 className="text-5xl md:text-7xl font-extralight leading-none mb-2" style={{ fontFamily: "var(--app-font-serif)" }}>
-              Khaleel
-            </h1>
-            <h1 className="text-5xl md:text-7xl font-extralight leading-none mb-8" style={{ fontFamily: "var(--app-font-serif)", letterSpacing: "-0.01em" }}>
-              <span className="text-white/60">Mohd</span>
-            </h1>
+            <div className="flex items-center gap-6 mb-8">
+              <div className="relative h-40 w-40 rounded-full ring-1 ring-amber-300/80 overflow-hidden">
+                <img
+                  src={FOUNDER_IMAGE}
+                  alt="Khaleel Mohammed"
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 rounded-full border border-amber-200/90 pointer-events-none" />
+              </div>
+              <div>
+                <h1 className="text-3xl md:text-4xl font-extralight leading-none" style={{ fontFamily: "var(--app-font-serif)", letterSpacing: "-0.01em" }}>
+                  <span className="gold-text gold-glow-text">MR.</span>
+                </h1>
+                <h1 className="text-3xl md:text-4xl font-extralight leading-none" style={{ fontFamily: "var(--app-font-serif)" }}>
+                  Khaleel
+                </h1>
+                <h1 className="text-3xl md:text-4xl font-extralight leading-none" style={{ fontFamily: "var(--app-font-serif)", letterSpacing: "-0.01em" }}>
+                  <span className="text-white/60">Mohammed</span>
+                </h1>
+              </div>
+            </div>
 
             <div className="gold-border rounded-sm px-4 py-2 inline-block mb-10">
               <p className="text-xs tracking-widest text-white/80" style={{ letterSpacing: "0.2em" }}>
@@ -171,13 +237,15 @@ function HeroSection() {
           {/* Right: Stats */}
           <div className="flex flex-col gap-6">
             {[
-              { label: "Years of Experience", value: "20+", sub: "UAE Real Estate & Architecture" },
-              { label: "Specializations", value: "4", sub: "ARC · Infrastructure · Investment · Analysis" },
-              { label: "Projects Consulted", value: "150+", sub: "Across UAE & GCC" },
+              { label: "Years of Experience", value: "20+", sub: "🇦🇪 UAE Real Estate & Architecture" },
+              { label: "Specializations", value: "4", sub: " Realty Consultation · Portfolio Management · Architectural & Infrastructure · Investment Advisory" },
+              { label: "Projects Consulted", value: "150+", sub: "Across 🇦🇪 UAE & 🌍 GCC" },
             ].map((stat, i) => (
               <FadeSection key={stat.label} delay={i * 150}>
                 <div className="glass-light gold-border rounded-xl p-6 luxury-card">
-                  <div className="text-4xl font-extralight gold-text mb-1" style={{ fontFamily: "var(--app-font-serif)" }}>{stat.value}</div>
+                  <div className="text-4xl font-extralight gold-text mb-1" style={{ fontFamily: "var(--app-font-serif)" }}>
+                    <TypingValue text={stat.value} delay={1200 + i * 500} />
+                  </div>
                   <div className="text-white/90 text-sm font-medium mb-1">{stat.label}</div>
                   <div className="text-white/40 text-xs tracking-wide">{stat.sub}</div>
                 </div>
@@ -189,7 +257,111 @@ function HeroSection() {
               <div className="glass-light rounded-xl p-6">
                 <div className="text-white/40 text-xs tracking-widest uppercase mb-4" style={{ letterSpacing: "0.25em" }}>Core Expertise</div>
                 <div className="grid grid-cols-2 gap-3">
-                  {["Architecture (ARC)", "Infrastructure Dev.", "Investment Consulting", "Project Analysis"].map((item) => (
+                  {["Property Management", "Plots and Land", "Buying - Selling - Leasing", "Construction & Development"].map((item) => (
+                    <div key={item} className="flex items-center gap-2">
+                      <div className="w-1 h-1 rounded-full" style={{ background: "var(--gold)" }} />
+                      <span className="text-white/70 text-xs">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </FadeSection>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30">
+        <span className="text-xs tracking-widest uppercase" style={{ letterSpacing: "0.3em", fontSize: "0.6rem" }}>Scroll</span>
+        <div className="w-px h-12" style={{ background: "linear-gradient(180deg, rgba(201,168,76,0.6), transparent)" }} />
+      </div>
+    </section>
+  );
+}
+
+// ─── COO / Co-Founder ───────────────────────────────────────────────
+function COOSection() {
+  const storyText = "A dynamic COO and Co-Founder who bridges real estate expertise with cutting-edge IT solutions, Syed Ilyas Ullah Refai has over 16 years of experience transforming projects across continents. Certified as a Fire and Safety Officer since 2013, he specializes in photogrammetry, cyber security, data infrastructure, project management, and delivery. Managing a 200M$+ portfolio spanning UAE, USA, India, UK, and Saudi Arabia, his commitment is unwavering.";
+  const { displayed, done } = useTypewriter(storyText, 20, 1200);
+
+  return (
+    <section id="coo" className="min-h-screen hero-bg relative flex items-center justify-center overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 dot-grid opacity-30 pointer-events-none" />
+      <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%)" }} />
+      <div className="absolute bottom-1/4 left-1/4 w-64 h-64 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(10,30,80,0.3) 0%, transparent 70%)" }} />
+
+      {/* Vertical line left */}
+      <div className="absolute left-8 top-1/4 bottom-1/4 w-px pointer-events-none" style={{ background: "linear-gradient(180deg, transparent, rgba(201,168,76,0.4), transparent)" }} />
+
+      <div className="max-w-6xl mx-auto px-6 pt-28 pb-20 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left: Text */}
+          <div>
+            <div className="text-xs tracking-widest text-white/40 mb-4 uppercase" style={{ letterSpacing: "0.4em" }}>COO & Co-Founder</div>
+            <div className="divider-gold mb-8 w-16" />
+
+            <div className="flex items-center gap-6 mb-8">
+              <div className="relative h-50 w-40 rounded-full ring-1 ring-amber-300/80 overflow-hidden">
+                 <img
+                  src={COO_IMAGE}
+                  alt="Syed Ilyas Ullah Refai"
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 rounded-full border border-amber-200/90 pointer-events-none" />
+              </div>
+              <div>
+                <h1 className="text-3xl md:text-4xl font-extralight leading-none" style={{ fontFamily: "var(--app-font-serif)", letterSpacing: "-0.01em" }}>
+                  <span className="gold-text gold-glow-text">MR.</span>
+                </h1>
+                <h1 className="text-3xl md:text-4xl font-extralight leading-none" style={{ fontFamily: "var(--app-font-serif)" }}>
+                  Syed Ilyas
+                </h1>
+                <h1 className="text-3xl md:text-4xl font-extralight leading-none" style={{ fontFamily: "var(--app-font-serif)", letterSpacing: "-0.01em" }}>
+                  <span className="text-white/60">Ullah Refai</span>
+                </h1>
+              </div>
+            </div>
+
+            <div className="gold-border rounded-sm px-4 py-2 inline-block mb-10">
+              <p className="text-xs tracking-widest text-white/80" style={{ letterSpacing: "0.2em" }}>
+                Real Estate  & IT Consultant
+              </p>
+            </div>
+
+            <div className="text-white/65 text-base leading-relaxed mb-8" style={{ fontFamily: "var(--app-font-serif)", minHeight: "8rem" }}>
+              {displayed}
+              {!done && <span className="typewriter-cursor" />}
+            </div>
+
+            <blockquote className="border-l-4 border-amber-300/50 pl-6 italic text-white/70 text-sm leading-relaxed">
+              "Once said it will be done, it will be. There is no 'no' in my dictionary."
+            </blockquote>
+          </div>
+
+          {/* Right: Stats */}
+          <div className="flex flex-col gap-6">
+            {[
+              { label: "Years of Experience", value: "16+", sub: "Real Estate & IT Consulting" },
+              { label: "Portfolio Value", value: "200M$+", sub: "Managed across 🇦🇪 UAE, 🇺🇸 USA, 🇮🇳 IND, 🇬🇧 UK, 🇸🇦 SAUDI" },
+            ].map((stat, i) => (
+              <FadeSection key={stat.label} delay={i * 150}>
+                <div className="glass-light gold-border rounded-xl p-6 luxury-card">
+                  <div className="text-4xl font-extralight gold-text mb-1" style={{ fontFamily: "var(--app-font-serif)" }}>
+                    <TypingValue text={stat.value} delay={1200 + i * 500} />
+                  </div>
+                  <div className="text-white/90 text-sm font-medium mb-1">{stat.label}</div>
+                  <div className="text-white/40 text-xs tracking-wide">{stat.sub}</div>
+                </div>
+              </FadeSection>
+            ))}
+
+            {/* Specializations */}
+            <FadeSection delay={450}>
+              <div className="glass-light rounded-xl p-6">
+                <div className="text-white/40 text-xs tracking-widest uppercase mb-4" style={{ letterSpacing: "0.25em" }}>Core Expertise</div>
+                <div className="grid grid-cols-2 gap-3">
+                  {["Photogrammetry", "Cyber Security", "Data Infrastructure", "Project Management & Delivery", "Fire & Safety"].map((item) => (
                     <div key={item} className="flex items-center gap-2">
                       <div className="w-1 h-1 rounded-full" style={{ background: "var(--gold)" }} />
                       <span className="text-white/70 text-xs">{item}</span>
@@ -285,16 +457,15 @@ function AccessForm() {
     `Hello Dar Al Naseem (DAN),%0A%0AName: ${encodeURIComponent(form.name)}%0APhone: ${encodeURIComponent(form.phone)}%0AEmail: ${encodeURIComponent(form.email)}%0A%0AMessage: ${encodeURIComponent(form.comment)}%0A%0ARequesting access to restricted project portfolio.`;
 
   const handleWhatsApp = () => {
-    if (!form.name || !form.email) return;
-    window.open(`https://wa.me/971500000000?text=${buildMessage()}`, "_blank");
+    // Open WhatsApp chat with provided number and greeting text "Hi"
+    window.open(`https://wa.me/971508834315?text=${encodeURIComponent("Hi")}`, "_blank");
     setModalOpen(true);
   };
 
   const handleEmail = () => {
-    if (!form.name || !form.email) return;
     const subject = encodeURIComponent("Access Request - Dar Al Naseem Portfolio");
-    const body = `Name: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email}\n\nMessage:\n${form.comment}\n\nRequesting access to restricted project portfolio.`;
-    window.open(`mailto:info@daralnaseem.com?subject=${subject}&body=${encodeURIComponent(body)}`);
+    const body = `Name: ${form.name || "(not provided)"}\nPhone: ${form.phone || "(not provided)"}\nEmail: ${form.email || "(not provided)"}\n\nMessage:\n${form.comment || "(no message)"}\n\nRequesting access to restricted project portfolio.`;
+    window.open(`mailto:info@daralnaseemrealestate.com?subject=${subject}&body=${encodeURIComponent(body)}`);
     setModalOpen(true);
   };
 
@@ -350,7 +521,7 @@ function AccessForm() {
 
 // ─── Company Section ─────────────────────────────────────────────────
 function CompanySection() {
-  const storyText = "Dar Al Naseem stands as one of the oldest and most reliable real estate firms in the region — a name synonymous with trust, precision, and generational wealth creation. As certified architectural consultants with a commanding presence across the UAE real estate sector, we have built our legacy on delivering results that transcend transactions.";
+  const storyText = "Dar Al Naseem stands as one of the oldest and most reliable real estate firms in the region — a name synonymous with trust, precision, and generational wealth creation. As certified architectural consultants with a commanding presence across the 🇦🇪 UAE real estate sector, we have built our legacy on delivering results that transcend transactions.";
   const { displayed, done } = useTypewriter(storyText, 18, 200);
 
   const [statsVisible, setStatsVisible] = useState(false);
@@ -369,7 +540,7 @@ function CompanySection() {
   const portfolioValue = useCountUp(100, 2500, statsVisible);
   const yearsOld = useCountUp(25, 2000, statsVisible);
   const properties = useCountUp(500, 2200, statsVisible);
-  const clients = useCountUp(1200, 2300, statsVisible);
+  const clients = useCountUp(12000, 2300, statsVisible);
 
   return (
     <section id="company" className="py-32 relative" style={{ background: "linear-gradient(180deg, #0a0f1e 0%, #060d1a 100%)" }}>
@@ -379,9 +550,12 @@ function CompanySection() {
           <div>
             <FadeSection>
               <div className="text-xs tracking-widest text-white/30 mb-4 uppercase" style={{ letterSpacing: "0.4em" }}>About Us</div>
-              <h2 className="text-5xl font-extralight mb-6 leading-tight" style={{ fontFamily: "var(--app-font-serif)" }}>
-                Dar Al <span className="gold-text">Naseem</span>
+              <h2 className="text-5xl font-extralight mb-1 leading-tight" style={{ fontFamily: "var(--app-font-serif)" }}>
+                Dar Al <span className="gold-text">Naseem</span> <span className="text-white/40 text-sm" style={{ letterSpacing: "0.15em" }}>since 2006</span>
               </h2>
+              <p className="gold-text text-sm mb-8" style={{ fontFamily: "var(--app-font-serif)", letterSpacing: "0.15em" }}>
+              <strong>🇦🇪 UAE CERTIFIED BROKREDGE</strong> & <strong>RERA CERTIFIED</strong>.
+              </p>
               <div className="divider-gold mb-8 w-16" />
               <p className="text-white/65 text-lg leading-relaxed mb-8" style={{ fontFamily: "var(--app-font-serif)", minHeight: "6rem" }}>
                 {displayed}
@@ -394,7 +568,7 @@ function CompanySection() {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: "🏠", title: "Buying & Selling", desc: "Premium transactions with complete discretion" },
-                  { icon: "🌍", title: "Land & Plot Experts", desc: "Strategic land acquisition across UAE" },
+                  { icon: "🌍", title: "Land & Plot Experts", desc: "Strategic land acquisition across 🇦🇪 UAE" },
                   { icon: "🏗️", title: "Development", desc: "End-to-end property development solutions" },
                   { icon: "📋", title: "Property Management", desc: "Professional portfolio management services" },
                 ].map((s) => (
@@ -418,7 +592,7 @@ function CompanySection() {
                 </div>
                 <div className="grid grid-cols-2 gap-8">
                   {[
-                    { value: portfolioValue, suffix: "M+", label: "Portfolio Value", unit: "AED" },
+                    { value: portfolioValue, suffix: "M$+", label: "Portfolio Value", unit: "AED" },
                     { value: yearsOld, suffix: "+", label: "Years of Excellence", unit: "" },
                     { value: properties, suffix: "+", label: "Properties Handled", unit: "" },
                     { value: clients, suffix: "+", label: "Satisfied Clients", unit: "" },
@@ -436,7 +610,7 @@ function CompanySection() {
                 <div className="mt-8 pt-8" style={{ borderTop: "1px solid rgba(201,168,76,0.15)" }}>
                   <div className="text-center">
                     <div className="text-white/40 text-xs tracking-wider uppercase mb-2" style={{ letterSpacing: "0.25em" }}>Investment Portfolios Managed</div>
-                    <div className="gold-text text-2xl font-light" style={{ fontFamily: "var(--app-font-serif)" }}>AED 100M+</div>
+                    <div className="gold-text text-2xl font-light" style={{ fontFamily: "var(--app-font-serif)" }}>AED 100M$+</div>
                     <div className="text-white/30 text-xs mt-1">Per senior manager, per portfolio</div>
                   </div>
                 </div>
@@ -562,8 +736,7 @@ function OfficeSection() {
                 <div className="text-white/50 text-sm mb-6">Upcoming Office — Under Development</div>
                 <div className="divider-gold mb-6" />
                 <div className="space-y-2 text-xs text-white/60 tracking-wider" style={{ letterSpacing: "0.15em" }}>
-                  <div><span className="gold-text font-medium">Dar Al Naseem (DAN) IT</span> — UAE | IND</div>
-                  <div><span className="gold-text font-medium">DAN Group</span> — UAE | SAUDI | USA | IND | UK</div>
+                  <div><span className="gold-text font-medium">Dar Al Naseem</span> — 🇦🇪 UAE | 🇺🇸 USA | 🇬🇧 UK | 🇸🇦 SAUDI</div>
                 </div>
               </div>
             </div>
@@ -579,7 +752,7 @@ function TeamSection() {
   const agents = [
     { name: "Agent 01", title: "Senior Property Consultant", region: "Dubai & Northern Emirates", years: "12+" },
     { name: "Agent 02", title: "Investment Portfolio Manager", region: "Abu Dhabi & Al Ain", years: "8+" },
-    { name: "Agent 03", title: "Architectural Liaison", region: "UAE & GCC", years: "15+" },
+    { name: "Agent 03", title: "Architectural Liaison", region: "🇦🇪 UAE & 🌍 GCC", years: "15+" },
     { name: "Agent 04", title: "Land Acquisition Specialist", region: "Dubai & Sharjah", years: "10+" },
   ];
 
@@ -645,24 +818,117 @@ function TeamSection() {
         </div>
 
         {/* Working snapshots */}
+        
         <FadeSection delay={200}>
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <div key={i} className="relative rounded-xl overflow-hidden" style={{ height: "120px" }}>
-                <div className="restricted-blur w-full h-full" style={{
-                  background: `linear-gradient(135deg, rgba(${20+i*15},${40+i*10},${80+i*20},0.4) 0%, rgba(201,168,76,0.05) 100%)`
-                }}>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-full h-full grid grid-cols-3 gap-1 p-3 opacity-30">
-                      {Array.from({ length: 6 }).map((_, j) => (
-                        <div key={j} className="rounded" style={{ background: "rgba(255,255,255,0.15)" }} />
-                      ))}
+          <div className="mt-12">
+            <div className="text-center mb-8">
+              <div className="text-xs tracking-widest text-white/30 mb-2 uppercase" style={{ letterSpacing: "0.3em" }}>Workspace</div>
+              <div className="divider-gold max-w-xs mx-auto" />
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { src: BUILDING_IMAGE, alt: "Modern office workspace" },
+                {src: BUILDING_IMAGE_2, alt: "Contemporary office interior" },
+                {src: BUILDING_IMAGE_3, alt: "Modern office lobby" },
+                {src: BUILDING_IMAGE_4, alt: "Contemporary office exterior" },
+                {src: BUILDING_IMAGE_5 ,alt: "Modern office hallway" },
+                {src: BUILDING_IMAGE_6, alt: "Contemporary office meeting area" },
+               { src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=400&h=300&fit=crop&crop=office", alt: "Executive meeting room" },
+
+                {src: BUILDING_IMAGE_7, alt: "Modern office collaborative space" },
+                {src: BUILDING_IMAGE_8, alt: "Contemporary office workspace" },
+                { src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=300&fit=crop&crop=office", alt: "Team collaboration area" },
+
+                {src: HALL_IMAGE_1, alt: "Contemporary meeting room" },
+                {src: HALL_IMAGE_2, alt: "Modern conference room" },
+                
+
+                // { src: "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=400&h=300&fit=crop&crop=office", alt: "Reception area" }
+].map((image, i) => (
+                <div key={i} className="relative rounded-xl overflow-hidden group cursor-pointer" style={{ height: "400px" }}>
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      e.currentTarget.nextElementSibling.style.display = 'flex';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="glass rounded-full px-3 py-1">
+                      <span className="text-white text-xs">View Workspace</span>
                     </div>
                   </div>
+                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-800 to-slate-900 hidden">
+                    <span className="text-white/50 text-xs">Image not found</span>
+                  </div>
                 </div>
-                <div className="absolute inset-0 flex items-center justify-center" style={{ background: "rgba(6,13,26,0.4)" }}>
-                  <div className="glass rounded-full px-3 py-1">
-                    <span className="text-white/50 text-xs">Working Snapshot</span>
+              ))}
+            </div>
+          </div>
+        </FadeSection>
+      </div>
+    </section>
+  );
+}
+
+// ─── Client Gallery ──────────────────────────────────────────────────
+function ClientGallery() {
+  return (
+    <section id="clients" className="py-32 relative" style={{ background: "linear-gradient(180deg, #04080f 0%, #0a0f1e 100%)" }}>
+      <div className="max-w-7xl mx-auto px-6">
+        <FadeSection>
+          <div className="text-center mb-16">
+            <div className="text-xs tracking-widest text-white/30 mb-4 uppercase" style={{ letterSpacing: "0.4em" }}>Our Clients</div>
+            <h2 className="text-5xl font-extralight mb-4" style={{ fontFamily: "var(--app-font-serif)" }}>
+              Trusted <span className="gold-text">Partnerships</span>
+            </h2>
+            <div className="divider-gold max-w-xs mx-auto" />
+            <p className="text-white/60 mt-6 max-w-2xl mx-auto">
+              Building lasting relationships with discerning clients worldwide, delivering exceptional luxury real estate experiences.
+            </p>
+          </div>
+        </FadeSection>
+{/* // Client snapshots */}
+        <FadeSection delay={100}>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-3 gap-4">
+            {[
+                      {src: CLIENT_IMAGE_1, alt: "Client meeting at luxury property", title: "Property Consultation" },
+                      {src: CLIENT_IMAGE_2, alt: "Client signing documents", title: "Deal Closing" },
+                      {src: CLIENT_IMAGE_3, alt: "Client touring property", title: "Property Viewing" },
+                      {src: CLIENT_IMAGE_4, alt: "Client with family at new home", title: "Family Relocation" },
+                      {src: CLIENT_IMAGE_5, alt: "Client at investment meeting", title: "Investment Planning" },
+                      {src: CLIENT_IMAGE_6, alt: "Client celebrating purchase", title: "Success Celebration" },
+                     
+
+              // { src: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop&crop=face", alt: "Client meeting at luxury property", title: "Property Consultation" },
+              // { src: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&crop=face", alt: "Client signing documents", title: "Deal Closing" },
+              // { src: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop&crop=face", alt: "Client touring property", title: "Property Viewing" },
+              // { src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=300&fit=crop&crop=face", alt: "Client with family at new home", title: "Family Relocation" },
+              // { src: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&h=300&fit=crop&crop=face", alt: "Client at investment meeting", title: "Investment Planning" },
+              // { src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=300&fit=crop&crop=face", alt: "Client celebrating purchase", title: "Success Celebration" },
+              // { src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=face", alt: "Client consultation session", title: "Personal Consultation" },
+              // { src: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=300&fit=crop&crop=face", alt: "Client family meeting", title: "Family Meeting" }
+            ].map((image, i) => (
+              <div key={i} className="relative rounded-xl overflow-hidden group cursor-pointer">
+                <div className="aspect-[4/4] relative">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      e.currentTarget.nextElementSibling.style.display = 'flex';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-white font-medium text-sm mb-1">{image.title}</h3>
+                    <p className="text-white/80 text-xs">Building trust through personalized service</p>
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-800 to-slate-900 hidden">
+                    <span className="text-white/50 text-xs">Client image not found</span>
                   </div>
                 </div>
               </div>
@@ -686,7 +952,7 @@ function FooterSection() {
             <div className="text-white/30 text-xs tracking-widest mb-8 uppercase" style={{ letterSpacing: "0.4em" }}>Dar Al Naseem</div>
             <div className="divider-gold max-w-xs mx-auto mb-8" />
             <p className="text-white/40 text-sm max-w-lg mx-auto leading-relaxed">
-              Where architecture meets investment intelligence. Serving the UAE and beyond with distinction since inception.
+              Where architecture meets investment intelligence. Serving the 🇦🇪 UAE and beyond with distinction since inception.
             </p>
           </div>
         </FadeSection>
@@ -695,9 +961,13 @@ function FooterSection() {
           <div className="grid md:grid-cols-3 gap-8 text-center mb-16">
             <div>
               <div className="gold-text text-xs tracking-widest uppercase mb-3" style={{ letterSpacing: "0.3em" }}>Presence</div>
-              <div className="space-y-1 text-white/50 text-xs">
-                <div>UAE · SAUDI ARABIA</div>
-                <div>USA · INDIA · UK</div>
+              <div className="space-y-2 text-white/60">
+                <div style={{ fontSize: "1.2rem", lineHeight: "1.5", letterSpacing: "0.08em" }}>
+                  🇦🇪 <span className="text-white/70 text-xs">UAE</span> · 🇸🇦 <span className="text-white/70 text-xs">SAUDI</span>
+                </div>
+                <div style={{ fontSize: "1.2rem", lineHeight: "1.5", letterSpacing: "0.08em" }}>
+                  🇺🇸 <span className="text-white/70 text-xs">USA</span> · 🇮🇳 <span className="text-white/70 text-xs">INDIA</span> · 🇬🇧 <span className="text-white/70 text-xs">UK</span>
+                </div>
               </div>
             </div>
             <div>
@@ -721,7 +991,7 @@ function FooterSection() {
 
         <div className="divider-gold mb-8" />
         <div className="text-center text-white/20 text-xs tracking-wider">
-          © 2025 Dar Al Naseem (DAN). All rights reserved. Luxury Real Estate · UAE
+          © 2025 Dar Al Naseem (DAN). All rights reserved. Luxury Real Estate · 🇦🇪 UAE
         </div>
       </div>
     </footer>
@@ -771,11 +1041,17 @@ export default function Home() {
       <LuxuryCursor />
       <Navbar />
       <HeroSection />
+      <COOSection />
       <CollaboratorsSection />
-      <ProjectsSection />
-      <CompanySection />
-      <OfficeSection />
+                  <OfficeSection />
+
       <TeamSection />
+
+
+      {/* <ProjectsSection /> */}
+      <CompanySection />
+      <ClientGallery />
+      <InterrogationQuiz />
       <FooterSection />
     </div>
   );
